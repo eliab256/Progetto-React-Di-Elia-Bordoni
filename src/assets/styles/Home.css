@@ -1,6 +1,7 @@
 .home{
     flex: 1;
     display: flex;
+    margin-top: 8vh;
     /*add background img here*/
 }
 
