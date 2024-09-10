@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+button:Hover {
+  cursor: pointer;
+}
+
 body{
   overflow: auto;
 }
