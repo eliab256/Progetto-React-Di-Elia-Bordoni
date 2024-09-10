@@ -13,8 +13,10 @@
 .cardsContainer{
     width: 100%;
     background-color: rgb(104, 50, 205);
-    padding: 5%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+  /*  display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
 }
