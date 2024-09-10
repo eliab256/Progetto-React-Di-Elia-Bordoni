@@ -27,13 +27,15 @@ const Timer = () => {
   };
 
   return (
-    <div className='TimerContainer'>
-      <div className='TimerItem'>
+    <div className='timerContainer'>
+      <div className='timerItem'>
         <h2>{seconds.toFixed(2)}s</h2>
       </div>
+      <div className='buttonsContainer'>
         <button className='timerButton' onClick={handleStart}>Start</button>
         <button className='timerButton' onClick={handleStop}>Stop</button>
         <button className='timerButton' onClick={handleReset}>Reset</button>
+      </div>
     </div>
   );
 };
