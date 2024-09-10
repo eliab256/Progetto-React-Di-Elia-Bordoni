@@ -1,14 +1,20 @@
 import React from 'react';
 import Timer from '../components/Timer';
 import Card from '../components/Card';
-import "../assets/styles/Home.css"
+import fire from "../assets/img/Fire.jpg";
+import forest from "../assets/img/Forest.jpg";
+import sea from "../assets/img/Sea.jpg";
+import rain from "../assets/img/Rain.jpg";
+import "../assets/styles/Home.css";
+
+
 
 const Home = () => {
     const environments = [
-      { name: 'Forest', imgSrc: '/img/forest.jpg' },
-      { name: 'Fire', imgSrc: '/img/beach.jpg' },
-      { name: 'Rain', imgSrc: '/img/rain.jpg' },
-      { name: 'Sea', imgSrc: '/img/mountain.jpg' },
+      { name: 'Forest', imgSrc: {forest} },
+      { name: 'Fire', imgSrc:  {fire} },
+      { name: 'Rain', imgSrc: {rain} },
+      { name: 'Sea', imgSrc: {sea} },
     ];
   
     return (
