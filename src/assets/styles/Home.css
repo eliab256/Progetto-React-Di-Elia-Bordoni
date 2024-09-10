@@ -2,21 +2,54 @@
     flex: 1;
     display: flex;
     margin-top: 8vh;
+    overflow: auto;
+
     /*add background img here*/
 }
 
 .homeContainer{
     height: inherit;
-    border: black solid 1px;
+ 
 }
 
 .cardsContainer{
+    height: inherit;
     width: 100%;
-    background-color: rgb(104, 50, 205);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
-  /*  display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; */
+    gap: 30px;
+    padding: 40px;
+    align-items: center;
+    justify-items: center;
+    
+  
 }
+
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+    .cardsContainer{
+        grid-template-columns: 1fr ;
+        padding: 15px;
+    }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+    .cardsContainer{
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 45px;
+    }
+
+
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+    .cardsContainer{
+        height: 52vh;
+    }
+
+
+  }
+ 

@@ -1,5 +1,5 @@
 .timerContainer{
-    height: 40%;
+    height: 22vh;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -24,7 +24,33 @@
 }
 
 button{
-    height: 60%;
+    height: 80%;
     width: 20%;
     margin: 2%;
 }
+
+
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+   
+    
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+
+    .timerContainer{
+        height: 25vh;
+    }
+
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+    .timerContainer{
+        height: 32vh;
+    }
+
+
+  }
+ 
