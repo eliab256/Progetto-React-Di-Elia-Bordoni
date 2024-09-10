@@ -1,6 +1,7 @@
 import React from 'react';
 import Timer from '../components/Timer';
 import Card from '../components/Card';
+import "../assets/styles/Home.css"
 
 const Home = () => {
     const environments = [
@@ -12,11 +13,13 @@ const Home = () => {
   
     return (
       <div className="home">
-        <Timer />
-        <div className="cards-container">
-          {environments.map((env, index) => (
-            <Card key={index} environment={env.name} imgSrc={env.imgSrc} />
-          ))}
+        <div className='homeContainer widthController'>
+          <Timer />
+          <div className="cardsContainer">
+            {environments.map((env, index) => (
+              <Card key={index} environment={env.name} imgSrc={env.imgSrc} />
+            ))}
+          </div>
         </div>
       </div>
     );

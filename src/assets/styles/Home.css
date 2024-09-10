@@ -1,0 +1,10 @@
+.home{
+    flex: 1;
+    display: flex;
+    /*add background img here*/
+}
+
+.homeContainer{
+    height: inherit;
+    border: black solid 1px;
+}
