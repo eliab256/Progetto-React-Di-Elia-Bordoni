@@ -1,34 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startTimer, stopTimer, resetTimer, incrementTimer } from '../store/timerSlice'; // Verifica il percorso
 import "../assets/styles/Timer.css"
 
 const Timer = () => {
-  const [seconds, setSeconds] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-
- 
+  const dispatch = useDispatch();
+  const { seconds, isActive } = useSelector((state) => state.timer);
   
   useEffect(() => {
     let interval = null;
     if (isActive) {
       interval = setInterval(() => {
-        setSeconds(seconds => seconds + 0.01);
+        dispatch(incrementTimer());
       }, 10);
     } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
     } 
     return () => clearInterval(interval);
-  }, [isActive, seconds]);
+  }, [isActive, seconds, dispatch]);
 
-  const handleStart = () => setIsActive(true);
-  const handleStop = () => setIsActive(false);
-
+  const handleStart = () => dispatch(startTimer());
+  const handleStop = () => dispatch(stopTimer());
   const handleReset = () => {
     if (!isActive) {
-      setSeconds(0); 
-    } 
+      dispatch(resetTimer());
+    }
   };
+
 
   return (
     <div className='timerContainer'>
