@@ -3,7 +3,13 @@ import "../assets/styles/Card.css"
 import play from "../assets/img/PlaySymbol.png"
 
 
-const Card = ({ environment, imgSrc }) => {
+const Card = ({ environment, imgSrc,}) => {
+
+  function handleCardClick(environment){
+
+
+  }
+
   return (
     <div className="card">
       <img src={imgSrc} alt={environment} className="cardImage" />
@@ -11,7 +17,7 @@ const Card = ({ environment, imgSrc }) => {
         <h3>{environment}</h3>
       </div>
       <div className='cardPlay'>
-        <img src={play} alt="play img" /*onClick={}*/ className='cardPlayImage'></img>
+        <img src={play} alt="play img" onClick={handleCardClick(environment)} className='cardPlayImage'></img>
       </div>
       
     </div>

@@ -11,7 +11,7 @@ import "../assets/styles/Home.css";
 
 const Home = () => {
     const environments = [
-      { name: 'Forest', imgSrc: forest },
+      { name: 'Forest', imgSrc: forest},
       { name: 'Fire', imgSrc:  fire },
       { name: 'Rain', imgSrc: rain },
       { name: 'Sea', imgSrc: sea }, 
