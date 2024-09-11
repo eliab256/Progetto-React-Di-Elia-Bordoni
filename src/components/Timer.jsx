@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { startTimer, stopTimer, resetTimer, incrementTimer } from '../store/timerSlice'; // Verifica il percorso
 import "../assets/styles/Timer.css"
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
+ 
+  
   useEffect(() => {
     let interval = null;
     if (isActive) {

@@ -9,21 +9,22 @@ const timerSlice = createSlice({
     name: 'timer',
     initialState,
     reducers: {
-      startTimer(state) {
+      startTimer: (state) => {
         state.isActive = true;
       },
-      stopTimer(state) {
+      stopTimer: (state) => {
         state.isActive = false;
       },
-      resetTimer(state) {
-        state.seconds = 0.00;
+      resetTimer: (state) => {
+        state.seconds = 0;
+        state.isActive = false;
       },
-      incrementTimer(state) {
+      incrementTimer: (state) => {
         if (state.isActive) {
-          state.seconds += 0.01;
+          state.seconds += 0.01; 
         }
-      },
-    },
+      }
+    }
   });
 
   export const { startTimer, stopTimer, resetTimer, incrementTimer } = timerSlice.actions;
