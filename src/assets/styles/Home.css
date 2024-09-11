@@ -1,10 +1,13 @@
 .home{
     flex: 1;
+    height: 100vh;
     display: flex;
     margin-top: 8vh;
     overflow: auto;
-
-    /*add background img here*/
+    background-image: url('../img/SunsetBackground.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
 }
 
 .homeContainer{
@@ -21,15 +24,21 @@
     padding: 40px;
     align-items: center;
     justify-items: center;
-    
-  
+    margin: 0 auto;
 }
 
 /* Mobile Styles */
 @media only screen and (max-width: 400px) {
+    .home{
+        background-image: url('../img/SunsetBackgroundForPhones.jpg');
+        
+    }
+       
     .cardsContainer{
         grid-template-columns: 1fr ;
         padding: 15px;
+        gap: 5px;
+        width: 50%;
     }
 }
 
@@ -46,8 +55,13 @@
 
 /* Desktop Styles */
 @media only screen and (min-width: 961px) {
+
+    .home{
+        height: 84vh;
+    }
+
     .cardsContainer{
-        height: 52vh;
+        height: 42vh;
     }
 
 
