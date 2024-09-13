@@ -5,12 +5,27 @@ import "../assets/styles/Card.css"
 import playImg from "../assets/img/PlaySymbol.png"
 
 
-const Card = ({ environment, imgSrc, }) => {
+const Card = ({ environment, imgSrc, audioSrc }) => {
   const dispatch = useDispatch();
+  const {  isActive } = useSelector((state) => state.timer);
+  const {isPlaying} = useSelector((state) => state.play)
 
   const pushPlay = () =>{
     dispatch(play());
   };
+
+  const playAudio = () =>{
+    if(isPlaying && isActive){
+      const audio = new Audio(audioSrc);
+      audio.play();
+    }
+
+  const pushPlayAudio = () =>{
+    pushPlay();
+    playAudio();
+  }
+
+  }
 
   return (
     <div className="card">
