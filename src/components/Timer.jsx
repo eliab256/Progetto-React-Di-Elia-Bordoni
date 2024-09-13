@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startTimer, stopTimer, resetTimer, incrementTimer } from '../store/Features/timerSlice'; 
+import { stop,} from "../store/Features/playCardSlice"
 import "../assets/styles/Timer.css"
 
 const Timer = () => {
   const dispatch = useDispatch();
   const { seconds, isActive } = useSelector((state) => state.timer);
+  const {isPlaying} = useSelector((state) => state.play)
   
   useEffect(() => {
     let interval = null;
@@ -20,12 +22,19 @@ const Timer = () => {
   }, [isActive, seconds, dispatch]);
 
   const handleStart = () => dispatch(startTimer());
-  const handleStop = () => dispatch(stopTimer());
+  const handleStop = () => {
+    dispatch(stopTimer());
+    dispatch(stop());
+  };
+
   const handleReset = () => {
     if (!isActive) {
       dispatch(resetTimer());
+      dispatch(stop());
     }
   };
+
+  const startButtonClass = isPlaying && !isActive ? 'timerButton blinkingButton' : 'timerButton';
 
 
   return (
@@ -34,7 +43,7 @@ const Timer = () => {
         <h2>{seconds.toFixed(2)}s</h2>
       </div>
       <div className='buttonsContainer'>
-        <button className='timerButton' onClick={handleStart}>Start</button>
+        <button className= {startButtonClass} onClick={handleStart}>Start</button>
         <button className='timerButton' onClick={handleStop}>Stop</button>
         <button className='timerButton' onClick={handleReset}>Reset</button>
       </div>

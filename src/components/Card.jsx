@@ -1,14 +1,14 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import "../assets/styles/Card.css"
-import play from "../assets/img/PlaySymbol.png"
+import playImg from "../assets/img/PlaySymbol.png"
 
 
 const Card = ({ environment, imgSrc, audioSrc}) => {
+  const dispatch = useDispatch();
 
   const pushPlay = () =>{
-
-
+    dispatch(play());
   };
 
   return (
@@ -18,7 +18,7 @@ const Card = ({ environment, imgSrc, audioSrc}) => {
         <h3>{environment}</h3>
       </div>
       <div className='cardPlay'>
-        <img src={play} alt="play img" onClick={pushPlay} className='cardPlayImage'></img>
+        <img src={playImg} alt="play img" onClick={pushPlay} className='cardPlayImage'></img>
       </div>
       
     </div>

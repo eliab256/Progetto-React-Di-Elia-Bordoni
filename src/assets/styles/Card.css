@@ -39,6 +39,10 @@
   object-fit: cover;
   cursor: pointer;
 }
+
+.cardPlayImage:active{
+  opacity: 50%;
+}
   
 /* Mobile Styles */
 @media only screen and (max-width: 400px) {
