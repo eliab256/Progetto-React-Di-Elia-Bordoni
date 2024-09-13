@@ -41,6 +41,15 @@
     0% { background-color: green; }
     50% { background-color: lightgreen; }
     100% { background-color: green; }
+  }
+
+.greenButton{
+    background-color: rgba(49, 128, 0, 0.888);
+    color: white;
+}
+
+.yellowButton{
+    background-color: rgba(255, 204, 0, 0.853);
 }
 
 

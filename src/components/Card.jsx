@@ -1,10 +1,11 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { play, stop,} from "../store/Features/playCardSlice"
 import "../assets/styles/Card.css"
 import playImg from "../assets/img/PlaySymbol.png"
 
 
-const Card = ({ environment, imgSrc, audioSrc}) => {
+const Card = ({ environment, imgSrc, }) => {
   const dispatch = useDispatch();
 
   const pushPlay = () =>{

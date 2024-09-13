@@ -34,8 +34,18 @@ const Timer = () => {
     }
   };
 
-  const startButtonClass = isPlaying && !isActive ? 'timerButton blinkingButton' : 'timerButton';
-
+  const startButtonClass = () =>{
+    switch(true){
+      case !isPlaying && !isActive:  
+       return '';
+      case isPlaying && !isActive:
+       return 'blinkingButton';
+      case !isPlaying && isActive:
+        return "yellowButton";
+      case isPlaying && isActive:
+        return "greenButton";
+    }
+  }
 
   return (
     <div className='timerContainer'>
@@ -43,7 +53,7 @@ const Timer = () => {
         <h2>{seconds.toFixed(2)}s</h2>
       </div>
       <div className='buttonsContainer'>
-        <button className= {startButtonClass} onClick={handleStart}>Start</button>
+        <button className= {`timerButton ${startButtonClass()}`}  onClick={handleStart}>Start</button>
         <button className='timerButton' onClick={handleStop}>Stop</button>
         <button className='timerButton' onClick={handleReset}>Reset</button>
       </div>
