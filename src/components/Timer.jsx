@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { startTimer, stopTimer, resetTimer, incrementTimer } from '../store/timerSlice'; // Verifica il percorso
+import { startTimer, stopTimer, resetTimer, incrementTimer } from '../store/Features/timerSlice'; 
 import "../assets/styles/Timer.css"
 
 const Timer = () => {
