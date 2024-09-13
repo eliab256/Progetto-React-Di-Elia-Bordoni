@@ -1,10 +1,15 @@
 import React from 'react';
+
+//import components
 import Timer from '../components/Timer';
 import Card from '../components/Card';
+
+//import img card
 import fire from "../assets/img/Fire.jpg";
 import forest from "../assets/img/Forest.jpg";
 import sea from "../assets/img/Sea.jpg";
 import rain from "../assets/img/Rain.jpg";
+
 import "../assets/styles/Home.css";
 
 
