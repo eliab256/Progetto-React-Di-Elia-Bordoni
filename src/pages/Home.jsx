@@ -26,6 +26,8 @@ const Home = () => {
       { name: 'Sea', imgSrc: sea, audioSrc:  seaAudio }, 
     ];
 
+    console.log(fireAudio, forestAudio, seaAudio, rainAudio);
+
     return (
       <div className="home">
         <div className='homeContainer widthController'>

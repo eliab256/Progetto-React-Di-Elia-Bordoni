@@ -7,8 +7,6 @@ import playImg from "../assets/img/PlaySymbol.png"
 
 const Card = ({ environment, imgSrc, audioSrc}) => {
 
-  console.log("Audio source path in Card:", audioSrc);
-
   const dispatch = useDispatch();
   const {isActive } = useSelector((state) => state.timer);
   const {isPlaying} = useSelector((state) => state.play);
@@ -19,11 +17,20 @@ const Card = ({ environment, imgSrc, audioSrc}) => {
   };
 
   useEffect(() =>{
+    audioFile.current.pause();
+    audioFile.current.src = audioSrc;
+    audioFile.current.load();
 
+    return () =>{
+      audioFile.current.pause();
+    };
+  }, [audioSrc]);
+
+
+  useEffect(() =>{
     if(isPlaying && isActive){
       audioFile.current.loop = true;
       audioFile.current.play();
-      
     } else {
       audioFile.current.pause();
       audioFile.current.currentTime = 0;
@@ -34,10 +41,6 @@ const Card = ({ environment, imgSrc, audioSrc}) => {
       audioFile.current.currentTime = 0;
     };
   }, [isPlaying, isActive, ]);
-
-  useEffect(() =>{
-    audioFile.current.src = audioSrc;
-  }, [audioSrc]);
 
 
   return (
@@ -57,4 +60,3 @@ const Card = ({ environment, imgSrc, audioSrc}) => {
 export default Card;
 
 
-//alert("il percorso fino a qui è corretto");
