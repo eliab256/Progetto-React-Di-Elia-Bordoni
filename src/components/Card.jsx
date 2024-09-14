@@ -1,31 +1,44 @@
-import React from 'react'
+import React, { useEffect,useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { play, stop,} from "../store/Features/playCardSlice"
 import "../assets/styles/Card.css"
 import playImg from "../assets/img/PlaySymbol.png"
 
 
-const Card = ({ environment, imgSrc, audioSrc }) => {
+const Card = ({ environment, imgSrc, audioSrc}) => {
+
+  console.log("Audio source path in Card:", audioSrc);
+
   const dispatch = useDispatch();
-  const {  isActive } = useSelector((state) => state.timer);
-  const {isPlaying} = useSelector((state) => state.play)
+  const {isActive } = useSelector((state) => state.timer);
+  const {isPlaying} = useSelector((state) => state.play);
+  const  audioFile = useRef(new Audio(audioSrc));
 
   const pushPlay = () =>{
     dispatch(play());
   };
 
-  const playAudio = () =>{
+  useEffect(() =>{
+
     if(isPlaying && isActive){
-      const audio = new Audio(audioSrc);
-      audio.play();
+      audioFile.current.loop = true;
+      audioFile.current.play();
+      
+    } else {
+      audioFile.current.pause();
+      audioFile.current.currentTime = 0;
     }
 
-  const pushPlayAudio = () =>{
-    pushPlay();
-    playAudio();
-  }
+    return () => {
+      audioFile.current.pause();
+      audioFile.current.currentTime = 0;
+    };
+  }, [isPlaying, isActive, ]);
 
-  }
+  useEffect(() =>{
+    audioFile.current.src = audioSrc;
+  }, [audioSrc]);
+
 
   return (
     <div className="card">
@@ -42,3 +55,6 @@ const Card = ({ environment, imgSrc, audioSrc }) => {
 };
 
 export default Card;
+
+
+//alert("il percorso fino a qui è corretto");

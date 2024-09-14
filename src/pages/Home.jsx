@@ -18,8 +18,6 @@ import rainAudio from "../assets/audio/Rain.wav"
 
 import "../assets/styles/Home.css";
 
-
-
 const Home = () => {
     const environments = [
       { name: 'Forest', imgSrc: forest, audioSrc:  forestAudio},
@@ -27,14 +25,14 @@ const Home = () => {
       { name: 'Rain', imgSrc: rain, audioSrc:  rainAudio},
       { name: 'Sea', imgSrc: sea, audioSrc:  seaAudio }, 
     ];
-  
+
     return (
       <div className="home">
         <div className='homeContainer widthController'>
           <Timer />
           <div className="cardsContainer">
             {environments.map((env, index) => (
-              <Card key={index} environment={env.name} imgSrc={env.imgSrc} />
+              <Card key={index} environment={env.name} imgSrc={env.imgSrc} audioSrc={env.audioSrc} />
             ))}
           </div>
         </div>
