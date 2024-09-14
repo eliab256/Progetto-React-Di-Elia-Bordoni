@@ -30,6 +30,7 @@
     margin: 2%;
     border-radius: 20px;
     box-shadow: 0px 0px 6px rgba(0,0,0,0.9);
+    font-size: large;
 }
 
 .blinkingButton {
@@ -69,12 +70,20 @@
         height: 35vh;
     }
 
+    .timerButton{
+        font-size: x-large;
+    }
+
 }
 
 /* Desktop Styles */
 @media only screen and (min-width: 961px) {
     .timerContainer{
         height: 42vh;
+    }
+
+    .timerButton{
+        font-size: xx-large;
     }
 
 
