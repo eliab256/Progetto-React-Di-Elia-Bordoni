@@ -1,4 +1,5 @@
 import React from 'react';
+import { play, stop,} from "../store/Features/playCardSlice"
 
 //import components
 import Timer from '../components/Timer';
@@ -20,13 +21,11 @@ import "../assets/styles/Home.css";
 
 const Home = () => {
     const environments = [
-      { name: 'Forest', imgSrc: forest, audioSrc:  forestAudio},
       { name: 'Fire', imgSrc:  fire, audioSrc:  fireAudio },
+      { name: 'Forest', imgSrc: forest, audioSrc:  forestAudio},
       { name: 'Rain', imgSrc: rain, audioSrc:  rainAudio},
       { name: 'Sea', imgSrc: sea, audioSrc:  seaAudio }, 
     ];
-
-    console.log(fireAudio, forestAudio, seaAudio, rainAudio);
 
     return (
       <div className="home">

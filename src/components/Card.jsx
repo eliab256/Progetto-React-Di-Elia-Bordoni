@@ -10,19 +10,27 @@ const Card = ({ environment, imgSrc, audioSrc}) => {
   const dispatch = useDispatch();
   const {isActive } = useSelector((state) => state.timer);
   const {isPlaying} = useSelector((state) => state.play);
-  const  audioFile = useRef(new Audio(audioSrc));
+  const  audioFile = useRef(null);
 
   const pushPlay = () =>{
     dispatch(play());
   };
 
-  useEffect(() =>{
-    audioFile.current.pause();
-    audioFile.current.src = audioSrc;
-    audioFile.current.load();
-
-    return () =>{
+  useEffect(() => {
+    // Crea un nuovo file audio quando cambia audioSrc
+    if (audioFile.current) {
       audioFile.current.pause();
+      audioFile.current.currentTime = 0; // Resetta l'audio precedente
+    }
+
+    audioFile.current = new Audio(audioSrc);
+
+    return () => {
+      // Cleanup dell'audio quando il componente si smonta o cambia audioSrc
+      if (audioFile.current) {
+        audioFile.current.pause();
+        audioFile.current.currentTime = 0;
+      }
     };
   }, [audioSrc]);
 
@@ -32,13 +40,17 @@ const Card = ({ environment, imgSrc, audioSrc}) => {
       audioFile.current.loop = true;
       audioFile.current.play();
     } else {
-      audioFile.current.pause();
-      audioFile.current.currentTime = 0;
+      if(audioFile.current){
+        audioFile.current.pause();
+        audioFile.current.currentTime = 0;
+      }
     }
 
     return () => {
-      audioFile.current.pause();
-      audioFile.current.currentTime = 0;
+      if (audioFile.current){
+        audioFile.current.pause();
+        audioFile.current.currentTime = 0;
+      }
     };
   }, [isPlaying, isActive, ]);
 
@@ -50,7 +62,7 @@ const Card = ({ environment, imgSrc, audioSrc}) => {
         <h3>{environment}</h3>
       </div>
       <div className='cardPlay'>
-        <img src={playImg} alt="play img" onClick={pushPlay} className='cardPlayImage'></img>
+        <img src={playImg} alt="play img" onClick={() => pushPlay(audioSrc)} className='cardPlayImage'></img>
       </div>
       
     </div>
