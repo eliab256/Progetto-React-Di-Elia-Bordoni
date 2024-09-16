@@ -53,7 +53,7 @@ const Timer = () => {
         <h2>{seconds.toFixed(2)}s</h2>
       </div>
       <div className='buttonsContainer'>
-        <button className= {`timerButton ${startButtonClass()}`}  onClick={handleStart}>Start</button>
+        <button className= {`timerButton ${startButtonClass()}`} onClick={handleStart}>Start</button>
         <button className='timerButton' onClick={handleStop}>Stop</button>
         <button className='timerButton' onClick={handleReset}>Reset</button>
       </div>
