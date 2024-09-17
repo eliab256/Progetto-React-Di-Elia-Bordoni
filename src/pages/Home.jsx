@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { resetError } from "../store/Features/statusSlice";
 
 //import components
 import Timer from '../components/Timer';
@@ -19,6 +21,17 @@ import rainAudio from "../assets/audio/Rain.wav"
 import "../assets/styles/Home.css";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { error } = useSelector((state) => state.status);
+
+  useEffect(() => {
+    if (error) {
+      alert('An error has occurred. Please reload the page to try again');
+      // Puoi decidere di resettare l'errore dopo aver mostrato l'alert
+      dispatch(resetError());
+    }
+  }, [error, dispatch]);
+
     const environments = [
       { name: 'Fire', imgSrc:  fire, audioSrc:  fireAudio },
       { name: 'Forest', imgSrc: forest, audioSrc:  forestAudio},
