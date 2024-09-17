@@ -24,7 +24,6 @@ const Timer = () => {
   const handleStart = () => dispatch(startTimer());
   const handleStop = () => {
     dispatch(stopTimer());
-    dispatch(stop());
   };
 
   const handleReset = () => {

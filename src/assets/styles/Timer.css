@@ -12,7 +12,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    font-size:xx-large;
+    font-size: 30px;
 }
 
 
@@ -77,6 +77,11 @@
         font-size: x-large;
     }
 
+    .timerItem{
+        font-size: 50px;
+    }
+
+
 }
 
 /* Desktop Styles */
@@ -88,6 +93,11 @@
     .timerButton{
         font-size: xx-large;
     }
+
+    .timerItem{
+        font-size: 60px;
+    }
+
 
 
   }
