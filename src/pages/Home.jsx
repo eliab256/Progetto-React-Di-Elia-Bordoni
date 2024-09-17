@@ -1,5 +1,4 @@
 import React from 'react';
-import { play, stop,} from "../store/Features/playCardSlice"
 
 //import components
 import Timer from '../components/Timer';
@@ -33,8 +32,9 @@ const Home = () => {
           <Timer />
           <div className="cardsContainer">
             {environments.map((env, index) => (
-              <Card key={index} environment={env.name} imgSrc={env.imgSrc} audioSrc={env.audioSrc} />
+              <Card key={index} environment={env.name} imgSrc={env.imgSrc} audioSrc={env.audioSrc} /> 
             ))}
+            
           </div>
         </div>
       </div>

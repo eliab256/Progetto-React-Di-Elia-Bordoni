@@ -1,18 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  isPlaying: false
+  isPlaying: false,
+  activeCard: null,
 };
 
 const playCardSlice = createSlice({
   name: 'play',
   initialState,
   reducers: {
-    play: (state) => {
+    play: (state, action) => {
       state.isPlaying = true;
+      state.activeCard = action.payload;
     },
     stop: (state) => {
         state.isPlaying = false;
+        state.activeCard = null;
       }
     
   }

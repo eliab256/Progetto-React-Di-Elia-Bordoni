@@ -9,11 +9,11 @@ const Card = ({ environment, imgSrc, audioSrc}) => {
 
   const dispatch = useDispatch();
   const {isActive } = useSelector((state) => state.timer);
-  const {isPlaying} = useSelector((state) => state.play);
+  const {isPlaying, activeCard} = useSelector((state) => state.play);
   const  audioFile = useRef(null);
 
   const pushPlay = () =>{
-    dispatch(play());
+    dispatch(play(environment));
   };
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const Card = ({ environment, imgSrc, audioSrc}) => {
 
 
   useEffect(() =>{
-    if(isPlaying && isActive){
+    if(isPlaying && isActive && activeCard === environment){
       audioFile.current.loop = true;
       audioFile.current.play();
     } else {
@@ -52,7 +52,7 @@ const Card = ({ environment, imgSrc, audioSrc}) => {
         audioFile.current.currentTime = 0;
       }
     };
-  }, [isPlaying, isActive, ]);
+  }, [isPlaying, isActive, activeCard, environment]);
 
 
   return (
