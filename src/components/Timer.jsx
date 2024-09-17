@@ -44,7 +44,7 @@ const Timer = () => {
       case isPlaying && isActive:
         return "greenButton";
     }
-  }
+  };
 
   return (
     <div className='timerContainer'>
