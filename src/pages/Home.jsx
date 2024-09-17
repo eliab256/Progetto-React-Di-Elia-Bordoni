@@ -27,7 +27,6 @@ const Home = () => {
   useEffect(() => {
     if (error) {
       alert('An error has occurred. Please reload the page to try again');
-      // Puoi decidere di resettare l'errore dopo aver mostrato l'alert
       dispatch(resetError());
     }
   }, [error, dispatch]);
