@@ -17,16 +17,14 @@ const Card = ({ environment, imgSrc, audioSrc}) => {
   };
 
   useEffect(() => {
-    // Crea un nuovo file audio quando cambia audioSrc
     if (audioFile.current) {
       audioFile.current.pause();
-      audioFile.current.currentTime = 0; // Resetta l'audio precedente
+      audioFile.current.currentTime = 0; 
     }
 
     audioFile.current = new Audio(audioSrc);
 
     return () => {
-      // Cleanup dell'audio quando il componente si smonta o cambia audioSrc
       if (audioFile.current) {
         audioFile.current.pause();
         audioFile.current.currentTime = 0;
